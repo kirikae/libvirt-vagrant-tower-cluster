@@ -51,10 +51,6 @@ Vagrant.configure("2") do |config|
       end
     config.vm.network :private_network, ip: opts[:ip]
     config.vm.provision :file do |file|
-        file.source     = './select_host.sh'
-        file.destination    = '/tmp/select_host.sh'
-       end
-    config.vm.provision :file do |file|
         file.source     = './keys/vagrant'
         file.destination    = '/tmp/vagrant'
        end
