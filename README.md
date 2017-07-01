@@ -25,7 +25,7 @@ The Tower Cluster procedure is based on this link: https://www.ansible.com/blog/
 3. Login to each vm host (3 vm) and take the ip address on eth0
 4. Access the IP address from your browser of choice 
 5. Enable your Tower using your trial license (do this on each node)
-6. Test your cluster by envoking demo scm. Check the job status on each node.
+6. Test your cluster by invoking demo scm. Check the job status on each node.
 7. Enjoy!  
 
 ## The Vagrantfile explained
