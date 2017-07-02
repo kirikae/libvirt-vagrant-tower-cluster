@@ -6,6 +6,7 @@ rpm -e epel-release
 rpm -ivh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
 rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum clean all
+sudo yum install ansible -y
 sudo sh -x /tmp/select_host.sh
 sudo yum repolist
 systemctl stop firewalld
