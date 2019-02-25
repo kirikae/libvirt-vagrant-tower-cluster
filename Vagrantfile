@@ -7,31 +7,31 @@ Vagrant.configure("2") do |config|
     {
       :name => "clusternode1.demo.com",
       :box => "centos/7",
-      :version => "1705.02",
-      :ram => 2096,
+#      :version => "1705.02",
+      :ram => 4096,
       :vcpu => 1,
       :ip => "192.168.29.2"
     },
     {
       :name => "clusternode2.demo.com",
       :box => "centos/7",
-      :version => "1705.02",
-      :ram => 2096,
+#      :version => "1705.02",
+      :ram => 4096,
       :vcpu => 1,
       :ip => "192.168.29.3"
     },
     {
       :name => "clusternode3.demo.com",
       :box => "centos/7",
-      :version => "1705.02",
-      :ram => 2096,
+#      :version => "1705.02",
+      :ram => 4096,
       :vcpu => 1,
       :ip => "192.168.29.4"
     },
     {
       :name => "dbnode.demo.com",
       :box => "centos/7",
-      :version => "1705.02",
+#      :version => "1705.02",
       :ram => 1024,
       :vcpu => 1,
       :ip => "192.168.29.5"
@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision :file do |file|
         file.source     = './ansible-tower-install.sh'
         file.destination    = '/home/vagrant/ansible-tower-install.sh'
-       end 
+       end
    config.vm.provision :shell, path: "bootstrap-node.sh"
    config.vm.provision :shell, path: "ansible-installer.sh"
    end
