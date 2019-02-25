@@ -5,31 +5,31 @@ Vagrant.configure("2") do |config|
 # Define VMs with static private IP addresses, vcpu, memory and vagrant-box.
   boxes = [
     {
-      :name => "clusternode1.demo.com",
+      :name => "tower1.example.com",
       :box => "centos/7",
 #      :version => "1705.02",
-      :ram => 4096,
+      :ram => 2048,
       :vcpu => 1,
       :ip => "192.168.29.2"
     },
     {
-      :name => "clusternode2.demo.com",
+      :name => "tower2.example.com",
       :box => "centos/7",
 #      :version => "1705.02",
-      :ram => 4096,
+      :ram => 2048,
       :vcpu => 1,
       :ip => "192.168.29.3"
     },
     {
-      :name => "clusternode3.demo.com",
+      :name => "tower3.example.com",
       :box => "centos/7",
 #      :version => "1705.02",
-      :ram => 4096,
+      :ram => 2048,
       :vcpu => 1,
       :ip => "192.168.29.4"
     },
     {
-      :name => "dbnode.demo.com",
+      :name => "db.example.com",
       :box => "centos/7",
 #      :version => "1705.02",
       :ram => 1024,
@@ -48,8 +48,9 @@ Vagrant.configure("2") do |config|
       config.vm.provider :libvirt do |v|
         v.memory = opts[:ram]
         v.cpus = opts[:vcpu]
+        v.default_prefix = "vagrant"
       end
-    config.vm.network :private_network, ip: opts[:ip]
+    config.vm.network :private_network, :ip => opts[:ip]
     config.vm.provision :file do |file|
         file.source     = './keys/vagrant'
         file.destination    = '/tmp/vagrant'

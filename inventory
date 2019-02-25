@@ -1,17 +1,17 @@
 [tower]
-clusternode1.demo.com
-clusternode2.demo.com
-clusternode3.demo.com
+tower1.example.com
+tower2.example.com
+tower3.example.com
 
 [database]
-dbnode.demo.com
+db.example.com
 
 [all:vars]
 ansible_become=true
 ansible_ssh_private_key_file="/home/vagrant/.ssh/vagrant"
 admin_password='password'
 
-pg_host='dbnode.demo.com'
+pg_host='db.example.com'
 pg_port='5432'
 
 pg_database='tower'
@@ -26,3 +26,6 @@ rabbitmq_cookie=rabbitmqcookie
 
 # Needs to be true for fqdns and ip addresses
 rabbitmq_use_long_name=true
+
+# Modified to allow for deployment with less RAM
+required_ram=1000
