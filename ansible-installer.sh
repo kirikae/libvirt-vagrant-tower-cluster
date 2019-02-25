@@ -1,9 +1,9 @@
 #/bin/bash
-clusternode1=clusternode1.demo.com
-if [ $HOSTNAME = $clusternode1 ]
+TOWER1=tower1.example.com
+if [ $HOSTNAME = $TOWER1 ]
 then
     sh -x /home/vagrant/ansible-tower-install.sh
 else
-    echo "clusternode1 only"
+    echo "tower1 only"
 
 fi

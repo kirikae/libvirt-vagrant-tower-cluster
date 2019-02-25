@@ -17,8 +17,8 @@ sed -i '/192/d' /etc/hosts
 sed -i '/vagrant/d' /etc/hosts
 cat >> /etc/hosts << EOL
 # vagrant environment nodes
-192.168.29.2  clusternode1.demo.com
-192.168.29.3  clusternode2.demo.com
-192.168.29.4  clusternode3.demo.com
-192.168.29.5  dbnode.demo.com
+192.168.29.2  tower1.example.com
+192.168.29.3  tower2.example.com
+192.168.29.4  tower3.example.com
+192.168.29.5  db.example.com
 EOL

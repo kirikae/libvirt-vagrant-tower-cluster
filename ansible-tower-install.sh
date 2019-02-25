@@ -1,11 +1,11 @@
 #bin/bash
-file=ansible-tower-setup-bundle-latest.el7.tar.gz
-directory=ansible-tower-setup-bundle-3.4.1-1.el7
+FILE=ansible-tower-setup-bundle-latest.el7.tar.gz
+DIR=ansible-tower-setup-bundle-3.4.1-1.el7
 
 sudo yum install wget -y
 
-ls $file
-if [ -f "$file" ];
+ls $FILE
+if [ -f "$FILE" ];
 then
   echo "no need"
 else
@@ -15,16 +15,15 @@ cp /tmp/vagrant /home/vagrant/.ssh/
 chown vagrant:vagrant /home/vagrant/.ssh/*
 chmod 600 /home/vagrant/.ssh/vagrant
 
-if [ -f "$directory" ]
+if [ -f "$DIR" ]
 then
   echo "no need"
 else
   tar -xvf /home/vagrant/ansible-tower-setup-bundle-latest.el7.tar.gz
 fi
-cp /home/vagrant/inventory /home/vagrant/ansible-tower-setup-bundle-3.4.1-1.el7/
+cp /home/vagrant/inventory /home/vagrant/${DIR}/
 sudo chown -R vagrant:vagrant /home/vagrant/ansible-tower*
 sudo sed -i '/host_key_checking/a host_key_checking = False' /etc/ansible/ansible.cfg
-sudo echo "requied_ram=2048" >> /home/vagrant/ansible-tower-setup-bundle-3.4.1-1.el7/inventory
 setenforce 0
 export ANSIBLE_HOST_KEY_CHECKING=False
-sudo su vagrant /home/vagrant/ansible-tower-setup-bundle-3.4.1-1.el7/setup.sh
+sudo su vagrant /home/vagrant/${DIR}/setup.sh

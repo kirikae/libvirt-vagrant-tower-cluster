@@ -1,6 +1,6 @@
 #/bin/bash
-dbnode=dbnode
-if [ $HOSTNAME != $dbnode ]
+DBNODE=db
+if [ $HOSTNAME != $DBNODE ]
 then
     sudo /usr/bin/yum install ansible -y
 else
