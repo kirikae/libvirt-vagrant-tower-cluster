@@ -17,7 +17,7 @@ The Tower Cluster procedure is based on this link: https://www.ansible.com/blog/
    * vagrant-libvirt
    * vagrant-hostmanager
    * vagrant-triggers
-   * fog-libvirt
+3. `export VAGRANT_USE_VAGRANT_TRIGGERS=True`
 
 ## Procedure
 1. Download the code from :https://github.com/mikecali/libvirt-vagrant-Installing-Tower-Cluster
@@ -44,7 +44,6 @@ Vagrant.configure("2") do |config|
     {
       :name => "clusternode1.demo.com",
       :box => "centos/7",
-      :version => "1705.02",
       :ram => 2096,
       :vcpu => 1,
       :ip => "192.168.29.2"
@@ -52,7 +51,6 @@ Vagrant.configure("2") do |config|
     {
       :name => "clusternode2.demo.com",
       :box => "centos/7",
-      :version => "1705.02",
       :ram => 2096,
       :vcpu => 1,
       :ip => "192.168.29.3"
@@ -60,7 +58,6 @@ Vagrant.configure("2") do |config|
     {
       :name => "clusternode3.demo.com",
       :box => "centos/7",
-      :version => "1705.02",
       :ram => 2096,
       :vcpu => 1,
       :ip => "192.168.29.4"
@@ -68,7 +65,6 @@ Vagrant.configure("2") do |config|
     {
       :name => "dbnode.demo.com",
       :box => "centos/7",
-      :version => "1705.02",
       :ram => 1024,
       :vcpu => 1,
       :ip => "192.168.29.5"
