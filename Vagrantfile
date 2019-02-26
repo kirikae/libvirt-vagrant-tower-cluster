@@ -1,6 +1,18 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# http://stackoverflow.com/questions/19492738/demand-a-vagrant-plugin-within-the-vagrantfile
+required_plugins = %w( vagrant-libvirt vagrant-hostmanager )
+plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
+if not plugins_to_install.empty?
+  puts "Installing plugins: #{plugins_to_install.join(' ')}"
+  if system "vagrant plugin install #{plugins_to_install.join(' ')}"
+    exec "vagrant #{ARGV.join(' ')}"
+  else
+    abort "Installation of one or more plugins has failed. Aborting."
+  end
+end
+
 Vagrant.configure("2") do |config|
 # Define VMs with static private IP addresses, vcpu, memory and vagrant-box.
   boxes = [
@@ -8,7 +20,7 @@ Vagrant.configure("2") do |config|
       :name => "tower1.example.com",
       :box => "centos/7",
 #      :version => "1705.02",
-      :ram => 2048,
+      :ram => 4096,
       :vcpu => 1,
       :ip => "192.168.29.2"
     },
@@ -16,7 +28,7 @@ Vagrant.configure("2") do |config|
       :name => "tower2.example.com",
       :box => "centos/7",
 #      :version => "1705.02",
-      :ram => 2048,
+      :ram => 4096,
       :vcpu => 1,
       :ip => "192.168.29.3"
     },
@@ -24,7 +36,7 @@ Vagrant.configure("2") do |config|
       :name => "tower3.example.com",
       :box => "centos/7",
 #      :version => "1705.02",
-      :ram => 2048,
+      :ram => 4096,
       :vcpu => 1,
       :ip => "192.168.29.4"
     },
