@@ -14,10 +14,16 @@ The Tower Cluster procedure is based on this link: https://www.ansible.com/blog/
 ## Requirements:
 1. vagrant 1.9.5 or higher
 2. vagrant plugins
-   * vagrant-libvirt
-   * vagrant-hostmanager
-   * vagrant-triggers
-3. `export VAGRANT_USE_VAGRANT_TRIGGERS=True`
+   * vagrant-libvirto
+   
+```bash
+# To get latest version of vagrant-libvirt, do not install from the Fedora repos
+sudo dnf --setopt install_weak_deps=0 --best install vagrant
+# Deps for the vagrant-libvirt from the plugin repo
+sudo dnf install libvirt-devel ruby-devel gcc 
+# Install from the plugins
+vagrant plugin install vagrant-libvirt
+```
 
 ## Procedure
 1. Download the code from :https://github.com/mikecali/libvirt-vagrant-Installing-Tower-Cluster
@@ -106,3 +112,5 @@ end
 1. disable host_key_checking on ansible.cfg on your master node.  
 2. disable firewalld
 3. set selinux to permissive
+
+NOTE: This is NOT good practice, and is done purely here to allow easier learning of Ansible Tower.
