@@ -1,6 +1,6 @@
 #bin/bash
 FILE=ansible-tower-setup-bundle-latest.el7.tar.gz
-DIR=ansible-tower-setup-bundle-3.4.3-1.el7
+DIR=ansible-tower-setup-bundle-3.5.0-1.el7
 
 sudo yum install wget -y
 
